@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Саша — не лох? 🤔</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #ffeb3b;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s;
+        }
+        h1 {
+            color: #3700ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #2196F3;
+        }
+        .hidden {
+            display: none;
+        }
+        .sasha-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #e91e63;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Проверка: "Саша лох?"</h1>
+        <img src="./photo_2025-06-05_23-35-56.jpg" alt="Саша" class="sasha-img" id="sashaImg">
+        <p>Нажми на кнопку, чтобы узнать правду!</p>
+        <button onclick="checkSasha()">Проверить</button>
+        <div id="result"></div>
+        <div id="secret" class="hidden">
+            <p>Шутка! Саша не лох, Саша - ебанный обдристанный хуесос! 😎</p>
+            <button onclick="celebrate()">Нажми для праздника!</button>
+        </div>
+    </div>
+
+    <script>
+        function checkSasha() {
+            const result = document.getElementById('result');
+            const secret = document.getElementById('secret');
+            const sashaImg = document.getElementById('sashaImg');
+            
+            result.textContent = "Загрузка...";
+            
+            setTimeout(() => {
+                result.textContent = "Результат: 99.9% вероятность...";
+                sashaImg.src = "./photo_2025-06-05_23-35-56.jpg"; 
+                
+                setTimeout(() => {
+                    secret.classList.remove('hidden');
+                    result.textContent = "";
+                }, 1500);
+            }, 2000);
+        }
+        
+        function celebrate() {
+            document.body.style.backgroundColor = "#ff5722";
+            const sashaImg = document.getElementById('sashaImg');
+            sashaImg.src = "./photo_2025-06-05_23-35-56.jpg"; 
+            
+            alert("🎉 Ура! Саша официально обдристанный хуесос! 🎉");
+        }
+    </script>
+</body>
+</html>
